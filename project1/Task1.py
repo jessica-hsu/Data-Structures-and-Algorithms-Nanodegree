@@ -47,6 +47,8 @@ print(f"There are {total} different telephone numbers in the records.")
 
 """
 Run time Analysis:
-
+Assume N records in texts and M records in calls. The algorithm I used iterates through 
+the entire array and adds then in our own array if the number does not exist in our array 
+yet. Worst case run time is O(N + M)
 
 """
