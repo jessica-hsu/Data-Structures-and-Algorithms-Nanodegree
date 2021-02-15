@@ -18,13 +18,35 @@ How many different telephone numbers are there in the records?
 Print a message:
 "There are <count> different telephone numbers in the records."
 """
+# look up of all phones
+all_phones = []
 
+def add(num1, num2):
+    if (num1 not in all_phones):
+        all_phones.append(num1)
+    if (num2 not in all_phones):
+        all_phones.append(num2)
+
+# read texts
+for text in texts:
+    sender = text[0]
+    receiver = text[1]
+    add(sender, receiver)
+
+# read calls
+for call in calls:
+    caller = call[0]
+    callee = call[1]
+    add(caller, callee)
+
+# Get size of all_phones
+total = len(all_phones)
+
+# Print statement
+print(f"There are {total} different telephone numbers in the records.")
 
 """
 Run time Analysis:
-Worst case scenario for run time is O(1). The calls and texts were read from csv and then put into an array.
-Worst case lookup for arrays are O(1).  Array lookups were used to determine first text and last call (two lookups).
-Three more lookups were used to text sender, text receiver, and text time. Four lookups were used to get
-caller, receiver, call time, and call length. Total of 2 + 3 + 4 = 9 lookups were made. 9 x O(1) is stil O(1).
+
 
 """
