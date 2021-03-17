@@ -19,4 +19,18 @@ Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
 """
+longest_duration = calls[0][3]
+telephone = calls[0][0]
+for call in calls:
+    current_duration = call[3]
+    if (current_duration > longest_duration):
+        longest_duration = current_duration
+        telephone = call[0]
 
+print(f"{telephone} spent the longest time, {longest_duration} seconds, on the phone during September 2016.")
+"""
+Run Time Analysis
+Assume N records in calls. The algorithm I used iterates through 
+the entire array to look for the longest duration and the telephone associated with it. 
+Worst case run time is O(N)
+"""
