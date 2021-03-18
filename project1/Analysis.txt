@@ -1,0 +1,22 @@
+Task 0:
+Worst case scenario for run time is O(1). The calls and texts were read from csv and then put into an array.
+Worst case lookup for arrays are O(1).  Array lookups were used to determine first text and last call (two lookups).
+Three more lookups were used to text sender, text receiver, and text time. Four lookups were used to get
+caller, receiver, call time, and call length. Total of 2 + 3 + 4 = 9 lookups were made. 9 x O(1) is stil O(1).
+
+Task 1:
+Assume N records in texts and M records in calls. The algorithm I used iterates through 
+the entire array and adds then in our own array if the number does not exist in our array 
+yet. Worst case run time is O(N + M)
+
+Task 2:
+Assume N records in calls. The algorithm I used iterates through 
+the entire array to look for the longest duration and the telephone associated with it. 
+Worst case run time is O(N)
+
+Task 3:
+The first filter function has O(N) given N is number of items calls. We iterate through the filtered list with M items once. The big O for that is O(M). 
+The sorting function has O(XlogX) given our list of unique codes has X items.
+Worse case total run time  is (N + M + XlogX).
+
+Task 4:

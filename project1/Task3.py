@@ -43,3 +43,40 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+# filter for bangalore callers
+bangalore_callers_filter = filter(lambda c: c[0][0:5] == "(080)", calls)
+bangalore_callers = list(bangalore_callers_filter)
+
+# Find unique list of codes made from bangalore callers
+unique_codes = {
+  "140": 0
+}
+for call in bangalore_callers:
+  other_person = call[1]
+  # fixed line
+  if (other_person[0] == "("):
+    if (other_person[1:4] not in unique_codes):
+      unique_codes[other_person[1:4]] = 1
+    else:
+      unique_codes[other_person[1:4]] += 1
+
+  # telemarketers
+  elif (other_person[0:3] == "140"):
+    unique_codes["140"] += 1
+  else: # mobile
+    if (other_person[0:4] not in unique_codes):
+      unique_codes[other_person[0:4]] = 1
+    else:
+      unique_codes[other_person[0:4]] += 1
+  
+# Find percentages of calls made to other fixed lines in bangalore
+to_other_bangalore_fixed_lines = unique_codes["080"]
+percentage = round((to_other_bangalore_fixed_lines/len(bangalore_callers))*100, 2)
+
+# print messages
+print("The numbers called by people in Bangalore have codes:")
+unique_codes = sorted(unique_codes)
+for code in unique_codes:
+  print(code)
+print(f"{percentage} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")

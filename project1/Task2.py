@@ -28,9 +28,3 @@ for call in calls:
         telephone = call[0]
 
 print(f"{telephone} spent the longest time, {longest_duration} seconds, on the phone during September 2016.")
-"""
-Run Time Analysis
-Assume N records in calls. The algorithm I used iterates through 
-the entire array to look for the longest duration and the telephone associated with it. 
-Worst case run time is O(N)
-"""
