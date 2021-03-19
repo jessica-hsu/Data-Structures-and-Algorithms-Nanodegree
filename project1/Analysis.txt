@@ -7,16 +7,19 @@ caller, receiver, call time, and call length. Total of 2 + 3 + 4 = 9 lookups wer
 Task 1:
 Assume N records in texts and M records in calls. The algorithm I used iterates through 
 the entire array and adds then in our own array if the number does not exist in our array 
-yet. Worst case run time is O(N + M)
+yet. Worst case run time is O(N + M).
 
 Task 2:
 Assume N records in calls. The algorithm I used iterates through 
 the entire array to look for the longest duration and the telephone associated with it. 
-Worst case run time is O(N)
+Worst case run time is O(N).
 
 Task 3:
 The first filter function has O(N) given N is number of items calls. We iterate through the filtered list with M items once. The big O for that is O(M). 
 The sorting function has O(XlogX) given our list of unique codes has X items.
-Worse case total run time  is (N + M + XlogX).
+Worst case total run time  is O(N + M + XlogX).
 
 Task 4:
+O(N) for iterating through list of all calls with N records. O(M) for iterating through list of all texts with M records.
+O(X) for iterating through list of X outgoing callers and filtering them. O(YlogY) for sorting the filtered list.
+Worst case total run time is O(N + M + X + YlogY).
