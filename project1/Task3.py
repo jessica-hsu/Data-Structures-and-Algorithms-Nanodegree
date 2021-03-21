@@ -49,7 +49,7 @@ bangalore_callers_filter = filter(lambda c: c[0][0:5] == "(080)", calls)
 bangalore_callers = list(bangalore_callers_filter)
 
 # Find unique list of codes made from bangalore callers
-unique_codes = []
+unique_codes = set()
 count = 0
 for call in bangalore_callers:
   other_person = call[1]
@@ -65,8 +65,8 @@ for call in bangalore_callers:
   # mobile numbers
   elif (other_person[0] in ["7", "8", "9"] and other_person.find(" ") > -1):
     code = other_person[0:4]
-  if (code not in unique_codes):
-    unique_codes.append(code)
+  
+  unique_codes.add(code)
 
 # Find percentages of calls made to other fixed lines in bangalore. Ans is 24.81 %
 percentage = round((count/len(bangalore_callers))*100, 2)

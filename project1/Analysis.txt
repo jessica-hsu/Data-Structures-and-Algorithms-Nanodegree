@@ -16,10 +16,10 @@ Worst case run time is O(N).
 
 Task 3:
 The first filter function has O(N) given N is number of items calls. We iterate through the filtered list with M items once. The big O for that is O(M). 
-The sorting function has O(XlogX) given our list of unique codes has X items.
-Worst case total run time  is O(N + M + XlogX).
+The sorting function has O(XlogX) given our set of unique codes has X items.
+Worst case total run time  is O(XlogX).
 
 Task 4:
 O(N) for iterating through list of all calls with N records. O(M) for iterating through list of all texts with M records.
-O(X) for iterating through list of X outgoing callers and filtering them. O(YlogY) for sorting the filtered list.
-Worst case total run time is O(N + M + X + YlogY).
+O(N) for iterating through all callers again to build telemarketer list. O(YlogY) for sorting the set of telemarketers.
+Worst case total run time is O(YlogY).
