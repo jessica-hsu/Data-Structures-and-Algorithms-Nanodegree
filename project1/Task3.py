@@ -49,30 +49,27 @@ bangalore_callers_filter = filter(lambda c: c[0][0:5] == "(080)", calls)
 bangalore_callers = list(bangalore_callers_filter)
 
 # Find unique list of codes made from bangalore callers
-unique_codes = {
-  "140": 0
-}
+unique_codes = []
+count = 0
 for call in bangalore_callers:
   other_person = call[1]
-  # fixed line
-  if (other_person[0] == "("):
-    if (other_person[1:4] not in unique_codes):
-      unique_codes[other_person[1:4]] = 1
-    else:
-      unique_codes[other_person[1:4]] += 1
+  # fixed line - starts with 0 and enclosed in ()
+  if (other_person[0:2] == "(0"):
+    ending = other_person.index(")")
+    code = other_person[1:ending]
+    if (code == "080"):
+      count += 1
+  # telemarketers - starts with 140 with no spaces or parenthesis
+  elif (other_person[0:3] == "140" and other_person.find(" ") == -1 and other_person.find("(") == -1 and other_person.find(")") == -1):
+    code = "140"
+  # mobile numbers
+  elif (other_person[0] in ["7", "8", "9"] and other_person.find(" ") > -1):
+    code = other_person[0:4]
+  if (code not in unique_codes):
+    unique_codes.append(code)
 
-  # telemarketers
-  elif (other_person[0:3] == "140"):
-    unique_codes["140"] += 1
-  else: # mobile
-    if (other_person[0:4] not in unique_codes):
-      unique_codes[other_person[0:4]] = 1
-    else:
-      unique_codes[other_person[0:4]] += 1
-  
-# Find percentages of calls made to other fixed lines in bangalore
-to_other_bangalore_fixed_lines = unique_codes["080"]
-percentage = round((to_other_bangalore_fixed_lines/len(bangalore_callers))*100, 2)
+# Find percentages of calls made to other fixed lines in bangalore. Ans is 24.81 %
+percentage = round((count/len(bangalore_callers))*100, 2)
 
 # print messages
 print("The numbers called by people in Bangalore have codes:")

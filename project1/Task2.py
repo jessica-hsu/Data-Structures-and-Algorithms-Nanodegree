@@ -19,12 +19,31 @@ Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
 """
-longest_duration = calls[0][3]
-telephone = calls[0][0]
+longest_duration = 0
+telephone = ''
+durations = {}
 for call in calls:
-    current_duration = call[3]
-    if (current_duration > longest_duration):
-        longest_duration = current_duration
-        telephone = call[0]
-
+    current_duration = int(call[3])
+    phone_1 = call[0]
+    phone_2 = call[1]
+    # add data for phone1 to dictionary
+    if (phone_1 in durations):
+        current = durations[phone_1]
+        durations[phone_1] = current + current_duration
+    else:
+        durations[phone_1] = current_duration
+    # add data for phone2 to dictionary
+    if (phone_2 in durations):
+        current = durations[phone_2]
+        durations[phone_2] = current + current_duration
+    else:
+        durations[phone_2] = current_duration
+    # find current longest duration
+    if (durations[phone_1] > longest_duration):
+        longest_duration = durations[phone_1]
+        telephone = phone_1
+    if (durations[phone_2] > longest_duration):
+        longest_duration = durations[phone_2]
+        telephone = phone_2
+        
 print(f"{telephone} spent the longest time, {longest_duration} seconds, on the phone during September 2016.")

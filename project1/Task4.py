@@ -25,35 +25,27 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-# find unique list of outgoing callers and call receivers
-outgoing_callers = []
-received_calls = []
-for call in calls:
-    caller = call[0]
-    callee = call[1]
-    if (caller not in outgoing_callers):
-        outgoing_callers.append(caller)
-    if (callee not in received_calls):
-        received_calls.append(callee)
+telemarketers = set()
+not_telemarketers = set()
 
-# find unique list of text senders and text receivers
-text_senders = []
-text_recievers = []
+# text senders and recievers are definitely not telemarketers
 for text in texts:
     texter = text[0]
     textee = text[1]
-    if (texter not in text_senders):
-        text_senders.append(texter)
-    if (textee not in text_recievers):
-        text_recievers.append(textee)
+    not_telemarketers.add(texter)
+    not_telemarketers.add(textee)
 
-# iterate through list of outgoing callers and see if they exist in the remaining three lists. If they do, remove
-for caller in outgoing_callers:
-    if (caller in received_calls or caller in text_senders or caller in text_recievers):
-        outgoing_callers.remove(caller)
+# callees are not telemarketers
+for call in calls:
+    callee = call[1]
+    not_telemarketers.add(callee)
 
-# print statement
-outgoing_callers = sorted(outgoing_callers)
-print("These numbers could be telemarketers: ")
-for caller in outgoing_callers:
-    print(caller)
+# go through all calls again. If caller not in not_telemarketers, add to telemarketer list
+for call in calls:
+    caller = call[0]
+    if (caller not in not_telemarketers):
+        telemarketers.add(caller)
+
+print("These numbers could be telemarketers:")
+for t in sorted(telemarketers):
+    print(t)

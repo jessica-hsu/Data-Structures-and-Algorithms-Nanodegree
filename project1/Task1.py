@@ -20,7 +20,6 @@ Print a message:
 """
 # look up of all phones
 all_phones = []
-
 def add(num1, num2):
     if (num1 not in all_phones):
         all_phones.append(num1)
