@@ -1,0 +1,4 @@
+This blockchain problem works almost entirely like a regular linked list but instead of keeping track of the next value, we keep track of the previous block. 
+
+Similar to prepending a new item to a linked list, my add method does not run any loop in order to add a new block. Runtime: O(1). Space complexity is also O(1). Only one block class 
+created at a time.

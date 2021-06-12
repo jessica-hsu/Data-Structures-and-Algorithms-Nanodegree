@@ -1,0 +1,17 @@
+To find the union, I iterated through the first linked list and added all values into a set. Then I iterated through the second linked list and added the values to a set. 
+Now this set has all the unique values that are in list A, list B, or both. Lastly, you iterate through this new list and placed each value into a linked list node.
+
+Iterating through first linked list: O(N) time. Iterating through second linked list: O(N). Iterating through the set of values from
+ the union of A and B to make new linked list: O(N). Space required for new set created to hold values from the union: O(N). 
+ Space required for new linked list: O(N):
+ Time complexity for union: 3 * O(N) = O(N)
+ Space complecity for union: 2 * O(N) = O(N)
+
+ For the intersection, we first iterate through list A and store the values in a set. I will call this 
+ set A. We then iterate through list B. If the value we see while going through B also exists in Set A,
+ we will add that value to a new set called Intersection set. Finally, we iterate through the intersection set
+  and add the values to a new linked list.
+Time complexity: Iterating through two linked lists and one set: 3 * O(N) = O(N)
+Space complexity: O(N) to store values from list A, O(N) to store intersection set, and O(N) to make new linked 
+list. Total = 3 * O(N) = O(N)
+

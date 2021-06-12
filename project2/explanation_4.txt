@@ -1,0 +1,6 @@
+Problem 4 is almost the same as problem 2. If the user is not in the list of users, you will have to go through all the subgroups and the sub-sub groups recursively to find 
+if the user is in the group.
+
+Assume that there are N users in a group and M groups. If user is in the user list, the time complexity if O(N) to check if user is in that list. If not,
+you will have to go through all M groups. So that's another O(M). Total runtime would be O(N) * ON(M) = O(N*M)
+

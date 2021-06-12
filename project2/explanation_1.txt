@@ -1,0 +1,15 @@
+The ask was to create a data structure that acts like a cache and only uses operations for setting and getting that are O(1). 
+
+For the cache, I thought about using a dictionary because the average runtime for insertion, deletion, and look ups are all O(1). Space complexity for dictionaries are O(N). 
+O(N) given N elements in the cache is going to be the best we can do for space complexity.
+
+To keep track of the order, I thought about using a queue since enqueing and dequeing costs O(1). 
+Enqueing makes the item go to the back of the line when we add a new item to the cache so that part works great.
+Dequeing makes the first item in the front of the line drop when we need to toss out the last used one. So far so good.
+The problem is with updating the order when we call get() on the cache since we need to remove the item from the cache and move it to the end of the list. 
+The item we are getting from the cache can be anywhere in the queue and we cannot remove something from the middle of the queue.
+
+So keeping a queue and a dictionary is not going to work out.
+
+Fortunately, Python has a special dictionary called OrderedDict that keeps track of the order of inserted element. In a way, it is a combination of a dictionary and a queue.
+This now works out great since we can insert, delete, read with just O(1) and space complexity remains the same at O(N).

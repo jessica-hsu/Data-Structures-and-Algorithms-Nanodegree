@@ -1,0 +1,6 @@
+File structures is pretty much a tree. Starting at the root level, you can have files directories that contain more directories and files.
+My implementation is a tree traversal with recursion and using depth first search (DFS). Starting at the root, my algorithm gets all directories and files in a list. Then
+it iterates through the list. It checks to see if it is a directory first. If it is, we call the find_files method again to go into that directory and repeat. If it wasn't a directory, then we 
+check to see if the files ends in given suffix.
+
+Space complexity for DFS is O(V) given V files/directories (number of nodes). In general, the time complexity of DFS is O(M+N) given N is the number of nodes and M is the number of edges.
