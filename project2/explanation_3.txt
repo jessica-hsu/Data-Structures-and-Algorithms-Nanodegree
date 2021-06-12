@@ -1,0 +1,14 @@
+Encoding:
+Step 1 is calculating the frequency of each letter. We use O(N) time and O(N) space to iterate through the sentence and store the frequencies in a dictionary.
+Step 2 is placing each letter node into a priority queue. O(N) for time and complexity.
+Step 3 is constantly adding and removing nodes from the priority queue until there is only 1 node left. O(NLOGN) for time
+Step 4 will iterate through the tree and create the binary code table for each letter. 
+Step 5 will go through the original string again and replace each letter with a binary string
+
+Encoding time complexity is O(NLOGN) and O(N) for space.
+
+Decoding:
+Starting at the first bit and root of the tree, if bit is 1, go right. If bit is 0, go left. Repeat until you reach a bit and there are no left/right child nodes. This means you have 
+reached a leaf node and you have found a letter. Continue on to the next bit but reset back to root node. Keep going until you reach end of the encoded string.
+
+Decoding time and space complexity: O(N)
