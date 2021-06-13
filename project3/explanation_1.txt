@@ -1,0 +1,6 @@
+The problem statement said that the expected time complexity is O(logN). This suggests that some form binary search. 
+The square root of any number, x, is always between 1 and x. From here we will use binary search to try to find the integer, n, so that 
+when n*n we get a product that will either be equal to x or close enough.
+Only data structure used are constants. They are used to store the high, low, target, and squared values.
+
+Time complexity for binary search is O(logN) and space complexity is O(1).
