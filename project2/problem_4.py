@@ -5,7 +5,10 @@ class Group(object):
         self.users = []
 
     def add_group(self, group):
-        self.groups.append(group)
+        if (isinstance(group, Group) is False):
+            print("Must add a valid group.")
+        else:
+            self.groups.append(group)
 
     def add_user(self, user):
         self.users.append(user)
@@ -48,10 +51,10 @@ def is_user_in_group(user, group):
             
         return False
 
+# case 1
 parent = Group("parent")
 child = Group("child")
 sub_child = Group("subchild")
-
 sub_child_user = "sub_child_user"
 sub_child.add_user(sub_child_user)
 
@@ -63,12 +66,15 @@ print(is_user_in_group("sub_child_user", child)) # returns True
 print(is_user_in_group("sub_child_user_1", parent)) # returns False
 
 # edge cases - invalid group
-print(is_user_in_group("sub_child_user_1", "")) # returns Please enter a valid gorup
+group_1 = Group("control")
+print(is_user_in_group("experiment_626", "")) # returns Please enter a valid gorup
 
 # edge case - invalid user
+group_2 = Group("trial_1")
 print(is_user_in_group("", parent)) # returns Please enter a valid user
 
 # edge case - None for both
-print(is_user_in_group(None, None)) # returns Please enter a valid user
+group_3 = Group("trial_3")
+group_3.add_group("") # Must add a valid group.
 
 
