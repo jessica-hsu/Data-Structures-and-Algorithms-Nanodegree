@@ -12,9 +12,8 @@ class Block:
 
     def calc_hash(self):
       sha = hashlib.sha256()
-      if (isinstance(self.data, str) is False):
-          self.data = str(self.data) # stringify before encoding. Will take in almost any kind of data
-      hash_str = self.data.encode("utf-8") # must add encode or you will get TypeError: Unicode-objects must be encoded before hashing
+      data_string = str(self.data) + "_" + str(self.timestamp)
+      hash_str = data_string.encode("utf-8") # must add encode or you will get TypeError: Unicode-objects must be encoded before hashing
       sha.update(hash_str)
       return sha.hexdigest()
 
@@ -24,6 +23,15 @@ class BlockChain:
         self.current = None
 
     def add(self, data):
+
+        if (data is None):
+            print("Must add valid data to blockchain.")
+            return
+        
+        if (data == ""):
+            print("Cannot add empty strings as data to blockchain.")
+            return
+
         # add new block link
         timestamp = datetime.datetime.now()
 
@@ -42,14 +50,22 @@ class BlockChain:
         else:
             return f"Timestamp: {self.current.timestamp}, Data: {self.current.data}, Previous Hash: {self.current.previous_hash}"
 
+# case 1
 chain = BlockChain()
 print(chain.get_current_info()) # No blocks in blockchain yet
-
 chain.add("first piece of data")
 print(chain.get_current_info())
-
 chain.add("second")
 print(chain.get_current_info())
-
 chain.add(3)
-chain.add(None)
+
+# case 2 - adding blocks with None
+chain_2 = BlockChain()
+chain_2.add(None) # Must add valid data to blockchain.
+
+# case 3 - adding empty string
+chain_3 = BlockChain()
+chain_3.add("") # Cannot add empty strings as data to blockchain.
+
+
+
