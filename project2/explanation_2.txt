@@ -4,3 +4,6 @@ it iterates through the list. It checks to see if it is a directory first. If it
 check to see if the files ends in given suffix.
 
 Space complexity for DFS is O(V) given V files/directories (number of nodes). In general, the time complexity of DFS is O(M+N) given N is the number of nodes and M is the number of edges.
+A recursion function requires the use of the call stack. Whenever the function is called, we add the function to the top of the call stack. The function is only removed when the function reaches
+the base case and returns. The recursive function is only considered complete when it goes through all "layers" and reaches the base case. Thus, if L is the number of "layers", the call stack will 
+require O(L) in order to hold all the calls that happen in the recursive function. In total, the space required for this algorithm is O(V) + O(L).

@@ -3,4 +3,6 @@ if the user is in the group.
 
 Assume that there are N users in a group and M groups. If user is in the user list, the time complexity if O(N) to check if user is in that list. If not,
 you will have to go through all M groups. So that's another O(M). Total runtime would be O(N) * ON(M) = O(N*M)
-
+A recursion function requires the use of the call stack. Whenever the function is called, we add the function to the top of the call stack. The function is only removed when the function reaches
+the base case and returns. The recursive function is only considered complete when it goes through all "layers" and reaches the base case. Thus, if L is the number of "layers", the call stack will 
+require O(L) in order to hold all the calls that happen in the recursive function.
