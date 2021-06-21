@@ -1,0 +1,10 @@
+Runtime complexity was expected to be O(logN) so this means that we cannot use linear search. Binary search is a method that has O(logN) time complexity.
+
+To find the rotated index, I decided to use a modified version of binary search to look for it instead of a regular linear search.
+Once you have the rotated index, you can break the original array into two separate arrays. Then we run binary search on the first set to see if the given is there.
+If it is there, you can stop there and return the index. If not, run binary search again on the second set. If it is not there, return -1. If it is there, take the returned index, 
+add the length of the first array set, and then you get the index of where the given was in the original array.
+
+To do all of this, I had to run binary search a maximum of three times. 
+3 x O(logN) = 3O(logN) ---> O(logN)
+Run time is still O(logN) even if you do binary search three times.
