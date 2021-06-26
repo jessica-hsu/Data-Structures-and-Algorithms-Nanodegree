@@ -1,0 +1,13 @@
+First you sort the array in descending order. Since we cannot use Python's built in sort function, we will write our own. 
+The expected time complexity is O(nlogn). Merge sort is a sorting algorithm that has O(nlogn) time. This will cost O(n) in space for holding the new sorted array.
+We used recurison for our merge sort method, which uses the call stack. Whenever the function is called, we add the function to the top of the call stack.
+The function is only removed when the function reaches the base case and returns. The recursive function is only considered complete when it goes through all "layers" 
+and reaches the base case. Thus, if L is the number of "layers", the call stack will require O(L) in order to hold all the calls that happen in the recursive function.
+In our merge sort, if our array has N elements, our layers will be N since the base case of merge sort breaks the array down into 1 element. 
+So O(n) for auxillary space.
+
+Next, we find the first number with a simple for loop that iterates through the sorted array. This costs O(n) in time and O(1) in space for holding new variable.
+Then we do the for loop again for finding the second number. This will cost another O(n) in time and O(1) in space.
+
+In total, the time complexity is O(nlogn) + O(n) + O(n) = O(nlogn).
+For space: O(n) + O(n) + O(1) + O(1) = O(n)
