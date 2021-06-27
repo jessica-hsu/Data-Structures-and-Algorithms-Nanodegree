@@ -1,0 +1,10 @@
+The easiest way is to traverse the input twice. First to get the frequency of each number. Second to repopulate the original array first with the number of 0s found, then 1s, then 2s.
+This still gives a time complexity of O(n) and O(1) for space. But it violates the "single traversal" rule since it traverse the array twice.
+
+The actual solution is to utilize some sort of partitioning whiling only traversing the array once. 
+All the 0s will be placed below the first pivot point, the 2s above the second, and the 1s in between.
+Method involves swapping positions if our checkpoint pointer sees a 0 or a 2. If it sees a 0, it will move it to the beginning of the array 
+where all the 0s are. If a 2, it will move it to the end where all the 2s are.
+
+This method only traverses the array of numbers once. Time complexity: O(n)
+Holds 3 variables for pointers. Space: O(1) * 3 = O(1)
