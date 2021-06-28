@@ -1,0 +1,11 @@
+Finding the maximum and minimum integer in an array will cost only O(1) if the array is sorted. All you do is take the element at the 0 index and length-1 index.
+The search operation for arrays is O(1) so total time complexity is O(1).
+
+With an unsorted array, you will need to sort it first. the fastest sorting algorithm is O(nlogn). But the assignment asks for finding max and min in an unsorted array 
+in O(n) time.
+
+You can do this by traversing the array once. Keep two pointers to keep track of current min and max. By default set them both to the element at index 0. Then start
+traversing through array. If the current number is smaller/greater than the min/max, update the pointer.
+
+Total time complexity: O(n)
+Space: O(1) for the min and max pointers
