@@ -1,0 +1,13 @@
+We were asked to implement the add_handler and lookup methods of our Router class which wraps the RouteTrie and RouteTrieNode classes. 
+
+add_handler:
+In this method, we add a full to our RouteTrie with an associated handler. 
+To add a path and handler to the RouteTrie, we first split up the full path into path pieces with "/" as the splitting points.
+Then we add in each path piece one at a time and give each a RouteTrieNode object. Given that N is the number of path pieces we have:
+Time: O(N), Space: O(N) for each RouteTrie and another O(N) to hold the array of path pieces. Total space O(N)
+
+lookup:
+In the lookup method, we first break up the full path into path pieces. Then we iterate through each path piece and check if it is in the RouteTrieNode children. 
+If path is not there, we return None. If it is there, we keep going until we go through all path pieces. Given N is the number of path pieces from the full path,
+Time: O(N), Space: O(N). Only a variable is used to keep track of the current RouteTrieNode while searching and O(N) needed to hold the array of path pieces.
+
