@@ -1,0 +1,11 @@
+We were asked to implement the insert, find, and find_match methods of a Trie. 
+
+For inserting a word in the trie, we are actually adding one letter at a time and each letter is represented by a TrieNode. Given N is the number of letters in a word:
+Time: O(N), Space: O(N)
+
+For finding a string in the trie, we search for one letter at the time. If current letter we are on exists, we can start searching for the next one. If not, it ends there
+and we return None. Given N is the number of letters in the search string:
+Time: O(N), Space: O(1). Only a variable is used to keep track of the current TrieNode while searching
+
+For finding prefix matches, the worst case scenario is when we return all words in a trie because of some unique (or lack of) prefix. Given that there are M TrieNodes in a Trie, 
+Time: O(M). Space: O(M). An array is required to hold all the words returned. At worst case, the array will have to hold M words
